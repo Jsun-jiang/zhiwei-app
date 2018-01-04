@@ -1,19 +1,29 @@
-/**
- * Created by lenovo on 2017/12/27.
- */
-import React, {Component} from 'react';
-
+// 注册导航
 import {
-  View,
-  Text,
 } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-class Index extends Component {
-  render() {
-    return <View>
-      <Text>hello i am index</Text>
-    </View>
+import Index from './components/Index/Index';
+import Search from './components/Search/Search';
+const Navs = StackNavigator({
+  Home: {
+    screen: Index,
+    navigationOptions: {
+      headerStyle: {
+        display: 'none'
+      }
+    }
+  },
+  Search: {
+    'screen': Search,
+    navigationOptions: {
+      headerStyle: {
+        display: 'none'
+      }
+    }
   }
-}
+}, {
+  initialRouteName: 'Home'
+});
 
-export default Index;
+export default Navs;
